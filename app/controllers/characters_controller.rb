@@ -11,7 +11,13 @@ class CharactersController < ApplicationController
     end
 
     def update
-        character = Character.[:id]
+        @character = Character.find(params[:id])
+        @character.update(
+            :name params[:name],
+            :age params[:age],
+            :enjoys params[:enjoys],
+            :image params[:image],
+        )
         render json: character
     end
 

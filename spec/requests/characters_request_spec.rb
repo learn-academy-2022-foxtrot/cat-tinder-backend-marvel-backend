@@ -44,3 +44,4 @@ RSpec.describe "Characters", type: :request do
       expect(character.name).to eq 'Buster'
     end
   end
+end
