@@ -11,7 +11,8 @@ class CharactersController < ApplicationController
     end
 
     def update
-    
+        character = Character.[:id]
+        render json: character
     end
 
     def destroy

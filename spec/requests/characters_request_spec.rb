@@ -18,7 +18,6 @@ RSpec.describe "Characters", type: :request do
       expect(character.length).to eq 1
     end
   end
-end 
 
   describe "POST /create" do
     it "creates a character" do
