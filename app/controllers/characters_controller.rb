@@ -11,18 +11,13 @@ class CharactersController < ApplicationController
     end
 
     def update
-        @character = Character.find(params[:id])
-        @character.update(
-            :name params[:name],
-            :age params[:age],
-            :enjoys params[:enjoys],
-            :image params[:image],
-        )
-        render json: character
+        character = Character.update(character_params[:id])
+        character.update(character_params)
     end
 
     def destroy
-    
+        character = Character.destroy(character[:id])
+        character.destroy(character_params)
     end
 
     private
