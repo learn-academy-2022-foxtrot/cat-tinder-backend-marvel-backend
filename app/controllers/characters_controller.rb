@@ -13,11 +13,13 @@ class CharactersController < ApplicationController
     def update
         character = Character.update(character_params[:id])
         character.update(character_params)
+        render json: character
     end
 
     def destroy
         character = Character.destroy(character[:id])
         character.destroy(character_params)
+        render json: character
     end
 
     private

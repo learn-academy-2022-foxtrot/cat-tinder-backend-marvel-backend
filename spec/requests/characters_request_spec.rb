@@ -4,10 +4,10 @@ RSpec.describe "Characters", type: :request do
   describe "GET /index" do
     it "gets a list of characters" do
       Character.create(
-        name: 'Felix',
-        age: 2,
-        enjoys: 'Walks in the park',
-        image: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80'
+        name: "Black Panther",
+        age: 35,
+        enjoys: "biting everything",
+        image: "find and add link"
       )
 
       # Make a request
@@ -24,10 +24,10 @@ RSpec.describe "Characters", type: :request do
       # The params we are going to send with the request
       character_params = {
         character: {
-          name: 'Buster',
-          age: 4,
-          enjoys: 'Meow Mix, and plenty of sunshine.',
-          image: 'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1036&q=80'
+          name: 'Wonder Woman',
+          age: 26,
+          enjoys: 'Gyms a lot',
+          image: 'find and add link'
         }
       }
   
@@ -41,7 +41,7 @@ RSpec.describe "Characters", type: :request do
       character = Character.first
   
       # Assure that the created character has the correct attributes
-      expect(character.name).to eq 'Buster'
+      expect(character.name).to eq 'Wonder Woman'
     end
   end
 end
