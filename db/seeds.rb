@@ -63,7 +63,7 @@ characters = [
         age: '46',
         enjoys: 'Beer and not shaving',
         image:'https://upload.wikimedia.org/wikipedia/commons/9/9e/Wolverine_%287343567212%29.jpg',
-    },
+    ,
     {
         name: 'Captian America',
         age: '99',
