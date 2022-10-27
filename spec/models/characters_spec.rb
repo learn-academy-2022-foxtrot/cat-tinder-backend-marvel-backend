@@ -1,3 +1,4 @@
+#  spec/models/characters_spec.rb
 require 'rails_helper'
 
 RSpec.describe Character, type: :model do
@@ -22,7 +23,7 @@ RSpec.describe Character, type: :model do
   end
 
   it "should validate enjoys is at least 10 characters minimum" do
-    character = Character.create(name:"GuanChan", age:32, enjoys:"pottery and motorcycling", image:"imageOfGuan.jpg")
+    character = Character.create(name:"GuanChan", age:32, enjoys:"pottery", image:"imageOfGuan.jpg")
     expect(character.errors[:enjoys]).to_not be_empty
   end
 end
