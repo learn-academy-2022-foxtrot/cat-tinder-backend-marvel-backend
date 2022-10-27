@@ -1,47 +1,46 @@
+# spec/requests/characters_request_spec.rb
 require 'rails_helper'
 
 RSpec.describe "Characters", type: :request do
+
   describe "GET /index" do
-    it "gets a list of characters" do
+    it"gets a list of characters" do
       Character.create(
         name: "Black Panther",
         age: 35,
         enjoys: "biting everything",
-        image: "find and add link"
+        image: "https://media.vanityfair.com/photos/5e27310def889c00087c7928/2:3/w_887,h_1331,c_limit/taylor-swift-cats.jpg"
       )
 
       # Make a request
       get '/characters'
 
       character = JSON.parse(response.body)
-      expect(response).to have_http_status(200)
-      expect(character.length).to eq 1
+      expect(response.status).to eq(200)
+      expect(character.length).to eq(1)
     end
   end
 
   describe "POST /create" do
-    it "creates a character" do
-      # The params we are going to send with the request
+    it "creates a new character" do
       character_params = {
         character: {
-          name: 'Wonder Woman',
-          age: 26,
-          enjoys: 'Gyms a lot',
-          image: 'find and add link'
+          name: "John",
+          age: 13,
+          enjoys: "everything there is in the ground",
+          image: "http://something.com/image.jpg",
         }
       }
-  
-      # Send the request to the server
-      post '/characters', params: character_params
-  
-      # Assure that we get a success back
-      expect(response).to have_http_status(200)
-  
-      # Look up the character we expect to be created in the db
+      post "/characters", params: character_params
       character = Character.first
-  
-      # Assure that the created character has the correct attributes
-      expect(character.name).to eq 'Wonder Woman'
+      p "character on create method:", character
+      expect(character.name).to eq("John")
+      expect(character.age).to eq(13)
+      expect(character.enjoys).to eq("everything there is in the ground")
+      expect(character.image).to eq("http://something.com/image.jpg")
+
     end
   end
+
 end
+ 

@@ -1,5 +1,7 @@
 class CharactersController < ApplicationController
 
+    # app/controllers/characters_controller.rb
+
     def index
         characters = Character.all
         render json: characters
@@ -7,12 +9,22 @@ class CharactersController < ApplicationController
     
     def create 
         character = Character.create(character_params)
-        render json: character
+        if character.valid?
+            render json: character
+        else 
+            render json: character.errors, status: 422
+        end
     end
 
+
     def update
-        character = Character.find(character_params[:id])
-        render json: character
+        character = Character.find(params[:id])
+         character.update(character_params)
+         if character.valid?
+           render json: character
+         else
+           render json: character.errors, status: 422
+         end
     end
 
     def destroy
@@ -21,7 +33,7 @@ class CharactersController < ApplicationController
     end
 
     private
-  def character_params
+    def character_params
     params.require(:character).permit(:name, :age, :enjoys, :image)
   end
 end
