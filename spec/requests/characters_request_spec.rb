@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Characters", type: :request do
 
   describe "GET /index" do
-    it "gets a list of cats" do
+    it "gets a list of characters" do
       Character.create(
         name: "Hazel",
         age: 3,
